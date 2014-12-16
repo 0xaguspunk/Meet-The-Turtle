@@ -1,0 +1,8 @@
+<div id="starred" class="animate-switch" ng-controller="StarredCtrl">
+  <h1>STARRED</h1>
+  <a href="" ng-click="getMusic()">Show Music</a>
+  <md-card ng-repeat="track in tracks" ng-animate="'animate'">
+    <h3 class="media-body">{{track.title}}</h3>
+    <img src="" class="img-circle media-left">
+  </md-card >
+</div>

@@ -1,0 +1,84 @@
+/* GENERAL */
+body {
+  background-color: #FAFAFA;
+}
+
+/* HEADER */
+md-toolbar.md-default-theme {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+}
+.navbar-brand {
+  padding-left: 3%;
+  padding-top: 8px;
+}
+
+/* SEARCH */
+.search {
+  padding: 1%;
+}
+md-input-group.md-default-theme input, md-input-group.md-default-theme textarea {
+  width: 100%;
+  font-size: 5em;
+}
+
+.modal-dialog {
+  margin-top: 30px;
+}
+
+
+/* BOTTOM MENU */
+md-tab {
+  border: 0;
+}
+
+md-tabs.md-default-theme .md-header {
+  background-color: #F44336;
+}
+
+md-tabs.md-default-theme md-tabs-ink-bar {
+  color: #FFEBEE;
+  background: #FFEBEE;
+}
+
+md-tabs.md-default-theme md-tab {
+  color: #FFEBEE;
+}
+
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+}
+
+/* PAGE ANIMATIONS */
+.animate-enter,
+.animate-leave
+{
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space:nowrap;
+}
+
+.animate-leave.animate-leave-active,
+.animate-enter {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.animate-enter.animate-enter-active,
+.animate-leave {
+  opacity: 1;
+  width: 150px;
+  height: 30px;
+}
+
+
