@@ -8,20 +8,11 @@
  * Controller of the meetTheTurtleApp
  */
 angular.module('meetTheTurtleApp')
-  .controller('StarredCtrl', function ($scope) {
+  .controller('StarredCtrl', function ($scope, lastfm) {
 
-    $scope.getMusic = function() {
-
-      SC.initialize({
-        client_id: "1ad3dc8b5612920883cf40e2db3692a0",
-        redirect_uri: "http://localhost:9000/#/starred",
+    var promise = $scope.tracks = lastfm.getHypedTracks()
+      .then(function (data) {
+        $scope.tracks = data;
       });
-
-      SC.get("/groups/55517/tracks", {limit: 10}, function(tracks){
-        $scope.tracks = tracks;
-      });
-    };
-
-    $scope.tracks = [];
 
   });

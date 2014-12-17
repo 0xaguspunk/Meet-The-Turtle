@@ -10,16 +10,17 @@
 angular.module('meetTheTurtleApp')
   .factory('spotify', function ($http) {
 
-    var base_url = 'https://api.spotify.com/v1/search?query=red+hot&offset=0&limit=20&type=track';
+    var base_url = 'https://api.spotify.com/v1/search';
+    var limit = 6;
 
     var spotify = {
       getQueryResult: function (query) {
 
-        var promise = $http.get({
-          url: 'https://api.spotify.com/v1/search',
+        var promise = $http.get(base_url,{
           params: {
             'type': 'track',
-            'q': query
+            'q': query,
+            'limit': limit
           }
         }).then(function (response) {
             return response.data.tracks.items;

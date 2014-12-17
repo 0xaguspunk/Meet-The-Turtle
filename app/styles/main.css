@@ -27,6 +27,14 @@ md-input-group.md-default-theme input, md-input-group.md-default-theme textarea 
   margin-top: 30px;
 }
 
+md-tooltip {
+  z-index: 100000;
+}
+
+.modal .modal-body {
+  max-height: 420px;
+  overflow-y: auto;
+}
 
 /* BOTTOM MENU */
 md-tab {

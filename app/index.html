@@ -47,9 +47,22 @@
                 <md-text-float ng-model="query" ng-keyup="search()"></md-text-float>
                 <md-list>
                   <md-item ng-repeat="result in results" ng-animate="'animate'">
-                    <md-item-content layout="row">
-                      <h3>{{result.album.name}}</h3>
+                    <md-item-content>
+                      <div  layout="row" flex="20" layout-align="center">
+                        <img ng-src="{{result.album.images[2].url}}" class="face" alt="{{item.who}}">
+                      </div>
+                      <div class="md-tile-content">
+                        <h3>{{result.name}}</h3>
+                        <h4>{{result.artists[0].name}}</h4>
+                      </div>
+                      <div flex="10" layout-align="center">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <md-tooltip>
+                          Add to list
+                        </md-tooltip>
+                      </div>
                     </md-item-content>
+                    <md-divider ng-if="!$last"></md-divider>
                   </md-item>
                 </md-list>
               </div>
@@ -113,8 +126,11 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <!-- Angular Material -->
+    <script src="bower_components/hammerjs/hammer.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="//connect.soundcloud.com/sdk.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/starred.js"></script>
         <script src="scripts/controllers/player.js"></script>
@@ -123,6 +139,7 @@
         <script src="scripts/controllers/menu.js"></script>
         <script src="scripts/controllers/search.js"></script>
         <script src="scripts/services/spotify.js"></script>
+        <script src="scripts/services/lastfm.js"></script>
         <!-- endbuild -->
 </body>
 </html>

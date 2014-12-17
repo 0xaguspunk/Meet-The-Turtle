@@ -14,12 +14,14 @@ angular.module('meetTheTurtleApp')
     $scope.results = [];
 
     $scope.search = function() {
-      if($scope.query) {
-        var promise = spotify.getQueryResult($scope.query)
-          .then(function (data) {
-            $scope.results = data;
-          });
-      }
+        if($scope.query) {
+          var promise = spotify.getQueryResult($scope.query)
+            .then(function (data) {
+              $scope.results = data;
+            });
+        }
+        else
+          $scope.results = [];
     };
   });
 
