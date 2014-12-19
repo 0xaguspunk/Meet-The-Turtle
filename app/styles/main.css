@@ -3,6 +3,26 @@ body {
   background-color: #FAFAFA;
 }
 
+md-item-content:hover {
+  background-color: #EEEEEE;
+}
+
+.glyphicon-heart {
+  font-size: 0.9em;
+}
+
+.likes {
+  margin-top: 4px;
+}
+
+.loading_circle {
+  margin-top: -35%;
+}
+
+.loading {
+  height:100vh;
+}
+
 /* HEADER */
 md-toolbar.md-default-theme {
   background-color: #ffffff;
@@ -88,5 +108,8 @@ md-tabs.md-default-theme md-tab {
   width: 150px;
   height: 30px;
 }
+
+/* STARRED */
+
 
 

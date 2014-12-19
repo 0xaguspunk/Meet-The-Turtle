@@ -3,35 +3,42 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.lastfm
- * @description
+ * @description Deals with the requests made to the Lastfm API.
  * # lastfm
  * Factory in the meetTheTurtleApp.
  */
 angular.module('meetTheTurtleApp')
-  .factory('lastfm', function ($http) {
+  .factory('lastfm', function ($http, $q) {
 
-    var lastfm = {
+    // Config variables
+    var base_url = 'http://ws.audioscrobbler.com/2.0/',
+        api_key = 'fd9cf40d0e96cac3ab91ce64ba819cfa',
+        format = 'json';
 
-      base_url: 'http://ws.audioscrobbler.com/2.0/',
-      api_key: 'fd9cf40d0e96cac3ab91ce64ba819cfa',
-      limit: 5,
-      method: 'chart.gethypedtracks',
-      format: 'json',
+    var deffered = $q.defer();
+    var data = [];
 
-      getHypedTracks: function() {
+    var lastfm =  {
 
-        var promise = $http.get(this.base_url,{
+      // API call to get the top tracks
+      getTopTracks: function(limit) {
+
+        var promise = $http.get(base_url,{
           params: {
-            'api_key': this.api_key,
-            'method': this.method,
-            'limit': this.limit,
-            'format': this.format
+            'api_key': api_key,
+            'method': 'chart.gettoptracks',
+            'limit': limit,
+            'format': format
           }
-        }).then(function (response) {
-
-          return  response.data.tracks.track;
+        }).success(function (response) {
+          data = response;
+          deffered.resolve();
         });
-        return promise;
+        return deffered.promise;
+      },
+
+      getData: function() {
+        return data;
       }
 
     };

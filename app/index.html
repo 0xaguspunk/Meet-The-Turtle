@@ -28,15 +28,16 @@
     <!-- Add your site or application content here -->
     <!-- Navigation Bar -->
     <md-toolbar  md-scroll-shrink layout="row" layout-align="center center">
-      <div flex="90">
-        <a class="navbar-brand" href="#" flex>
-            <img alt="Brand" src="../images/turtle.png">
-        </a>
+      <div class="md-toolbar-tools">
+        <div flex="90">
+          <a class="navbar-brand" href="#" flex>
+              <img alt="Brand" src="../images/turtle.png">
+          </a>
+        </div>
+        <div flex class="likes">
+            <span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
+        </div>
       </div>
-      <div flex>
-          <span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
-      </div>
-      <!-- Large modal -->
     </md-toolbar>
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -49,7 +50,7 @@
                   <md-item ng-repeat="result in results" ng-animate="'animate'">
                     <md-item-content>
                       <div  layout="row" flex="20" layout-align="center">
-                        <img ng-src="{{result.album.images[2].url}}" class="face" alt="{{item.who}}">
+                        <img ng-src="{{result.album.images[2].url}}" alt="{{result.artists[0].name}}">
                       </div>
                       <div class="md-tile-content">
                         <h3>{{result.name}}</h3>
@@ -126,7 +127,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- Angular Material -->
+    <!-- Angular Material & Others -->
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
 
@@ -140,6 +141,8 @@
         <script src="scripts/controllers/search.js"></script>
         <script src="scripts/services/spotify.js"></script>
         <script src="scripts/services/lastfm.js"></script>
+        <script src="scripts/services/track.js"></script>
+        <script src="scripts/services/formattrack.js"></script>
         <!-- endbuild -->
 </body>
 </html>

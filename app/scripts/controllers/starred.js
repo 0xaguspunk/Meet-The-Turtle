@@ -3,16 +3,18 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:MainCtrl
- * @description
+ * @description Controller of the Starred view.
  * # MainCtrl
  * Controller of the meetTheTurtleApp
  */
 angular.module('meetTheTurtleApp')
-  .controller('StarredCtrl', function ($scope, lastfm) {
+  .controller('StarredCtrl', function ($scope, track) {
 
-    var promise = $scope.tracks = lastfm.getHypedTracks()
-      .then(function (data) {
-        $scope.tracks = data;
-      });
+    var config = {
+      'limit': 10
+    };
 
+    $scope.loading = true;
+    track.getTopTracks(config.limit);
+    $scope.loading = false;
   });
