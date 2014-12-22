@@ -8,13 +8,17 @@
  * Factory in the meetTheTurtleApp.
  */
 angular.module('meetTheTurtleApp')
-  .factory('spotify', function ($http) {
+  .factory('spotify', function ($http, $q) {
 
     var base_url = 'https://api.spotify.com/v1/search';
-    var limit = 6;
+
+    var deffered = $q.defer();
+    var data = [];
 
     var spotify = {
-      getQueryResult: function (query) {
+
+      // API call to get results corresponding to a query
+      getSearchResult: function (query, limit) {
 
         var promise = $http.get(base_url,{
           params: {
@@ -22,10 +26,15 @@ angular.module('meetTheTurtleApp')
             'q': query,
             'limit': limit
           }
-        }).then(function (response) {
-            return response.data.tracks.items;
-          });
-        return promise;
+        }).success(function (response) {
+          data = response;
+          deffered.resolve();
+        });
+        return deffered.promise;
+      },
+
+      getData: function() {
+        return data;
       }
     };
     // Public API here

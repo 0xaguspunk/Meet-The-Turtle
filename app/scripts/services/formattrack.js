@@ -44,7 +44,32 @@ angular.module('meetTheTurtleApp')
 
           tracks.push(track);
         }
+        console.log(tracks);
+        return tracks;
+      },
 
+      // Adapts the Lastfm response format to the App format
+      spotifyToTrack: function(spotify_response) {
+
+        var response = spotify_response.tracks.items;
+        var tracks = [];
+        var track, name, artist, image_small, image_large, playcount;
+
+        for (var element = 0; element < response.length ; element++) {
+
+          name = response[element].name;
+          artist = response[element].artists.name;
+          if(response[element].hasOwnProperty('image')) {
+            image_small = response[element].album.images[2].url;
+            image_large = response[element].album.images[1].url;
+          }
+          playcount = response[element].popularity;
+
+          track = new Track (name, artist, image_small, image_large, playcount);
+
+          tracks.push(track);
+        }
+        console.log(tracks);
         return tracks;
       }
 

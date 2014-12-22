@@ -15,6 +15,6 @@ angular.module('meetTheTurtleApp')
     };
 
     $scope.loading = true;
-    track.getTopTracks(config.limit);
+    $scope.tracks = track.getTopTracks(config.limit);
     $scope.loading = false;
   });

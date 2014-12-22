@@ -16,6 +16,10 @@
           getData = lastfm.getData,
           formatTopTracks = formatTrack.lastfmToTrack;
 
+      var searchTrack = spotify.getSearchResult,
+          getSearchData = spotify.getData,
+          formatSearchTracks = formatTrack.spotifyToTrack;
+
       var tracks = [];
 
       var track = {
@@ -26,6 +30,17 @@
 
           topTracks(limit).then(function () {
             tracks = formatTopTracks(getData());
+          });
+
+          return tracks;
+        },
+
+        // Calls the API specified in searchTrack and changes the format
+        // of the response to the specified in formatSearchTracks
+        searchTrack: function(query, limit) {
+
+          searchTrack(limit).then(function () {
+            tracks = formatSearchTracks(getSearchData());
           });
 
           return tracks;

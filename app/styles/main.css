@@ -1,6 +1,10 @@
 /* GENERAL */
 body {
   background-color: #FAFAFA;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 md-item-content:hover {
@@ -78,6 +82,12 @@ md-tabs.md-default-theme md-tab {
   position: fixed;
   bottom: 0;
 }
+
+/* STARRED */
+#starred {
+  margin-bottom: 48px;
+}
+
 
 /* PAGE ANIMATIONS */
 .animate-enter,

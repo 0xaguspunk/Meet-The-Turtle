@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
 
-    <title>mtt</title>
-    
+    <title>Turtle</title>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -28,71 +28,14 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <!-- Navigation Bar -->
-    <md-toolbar  md-scroll-shrink layout="row" layout-align="center center">
-      <div class="md-toolbar-tools">
-        <div flex="90">
-          <a class="navbar-brand" href="#" flex>
-              <img alt="Brand" src="../images/turtle.png">
-          </a>
-        </div>
-        <div flex class="likes">
-            <span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
-        </div>
-      </div>
-    </md-toolbar>
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content" ng-controller="SearchCtrl">
-          <md-content class="search">
-            <form>
-              <div class="colum">
-                <md-text-float ng-model="query" ng-keyup="search()"></md-text-float>
-                <md-list>
-                  <md-item ng-repeat="result in results" ng-animate="'animate'">
-                    <md-item-content>
-                      <div  layout="row" flex="20" layout-align="center">
-                        <img ng-src="{{result.album.images[2].url}}" alt="{{result.artists[0].name}}">
-                      </div>
-                      <div class="md-tile-content">
-                        <h3>{{result.name}}</h3>
-                        <h4>{{result.artists[0].name}}</h4>
-                      </div>
-                      <div flex="10" layout-align="center">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <md-tooltip>
-                          Add to list
-                        </md-tooltip>
-                      </div>
-                    </md-item-content>
-                    <md-divider ng-if="!$last"></md-divider>
-                  </md-item>
-                </md-list>
-              </div>
-            </form>
-          </md-content>
-        </div>
-      </div>
-    </div>
+    <div ng-include="'views/header.html'"></div>
 
 
     <!-- View -->
     <div ng-view=""></div>
 
-    <!-- Footer Menu -->
-    <div ng-controller="MenuCtrl">
-      <md-tabs class="bottom-menu">
-        <md-tab md-on-select="go('/starred')">
-          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        </md-tab>
-        <md-tab md-on-select="go('/player')">
-          <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
-        </md-tab>
-        <md-tab md-on-select="go('/profile')">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        </md-tab>
-      </md-tabs>
-    </div>
+
+    <div ng-include="'views/menu.html'"></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

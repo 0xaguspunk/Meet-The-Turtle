@@ -9,16 +9,13 @@
  */
 
 angular.module('meetTheTurtleApp')
-  .controller('SearchCtrl', function ($scope, spotify) {
+  .controller('SearchCtrl', function ($scope, track) {
 
     $scope.results = [];
 
     $scope.search = function() {
         if($scope.query) {
-          var promise = spotify.getQueryResult($scope.query)
-            .then(function (data) {
-              $scope.results = data;
-            });
+          $scope.results = track.searchTrack($scope.query,6);
         }
         else
           $scope.results = [];
