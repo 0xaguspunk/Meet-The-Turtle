@@ -20,7 +20,7 @@ angular
     'ngTouch',
     'ngMaterial'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         redirectTo: '/starred'
