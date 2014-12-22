@@ -1,0 +1,14 @@
+<!-- Footer Menu -->
+<div ng-controller="MenuCtrl">
+  <md-tabs class="bottom-menu">
+    <md-tab md-on-select="go('/starred')">
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    </md-tab>
+    <md-tab md-on-select="go('/player')">
+      <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+    </md-tab>
+    <md-tab md-on-select="go('/profile')">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    </md-tab>
+  </md-tabs>
+</div>
