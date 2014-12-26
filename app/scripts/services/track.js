@@ -12,7 +12,7 @@
     .factory('track', function (formatTrack, lastfm, spotify, soundcloud) {
 
       // Configuration
-      var topTracks = lastfm.getTopTracks,
+      var getTopTracks = lastfm.getTopTracks,
           getData = lastfm.getData,
           formatTopTracks = formatTrack.lastfmToTrack;
 
@@ -20,7 +20,8 @@
           getSearchData = spotify.getData,
           formatSearchTracks = formatTrack.spotifyToTrack;
 
-      var tracks = [];
+      var searchedTracks = [],
+          topTracks;
 
       var track = {
 
@@ -28,22 +29,22 @@
         // of the response to the specified in formatTopTracks
         getTopTracks: function(limit) {
 
-          topTracks(limit).then(function () {
-            tracks = formatTopTracks(getData());
+          getTopTracks(limit).then(function () {
+            topTracks = formatTopTracks(getData());
           });
 
-          return tracks;
+          return topTracks;
         },
 
         // Calls the API specified in searchTrack and changes the format
         // of the response to the specified in formatSearchTracks
         searchTrack: function(query, limit) {
 
-          searchTrack(limit).then(function () {
-            tracks = formatSearchTracks(getSearchData());
+          searchTrack(query,limit).then(function () {
+            searchedTracks = formatSearchTracks(getSearchData());
           });
 
-          return tracks;
+          return searchedTracks;
         }
 
       };

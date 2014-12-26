@@ -22,11 +22,11 @@
               <md-item ng-repeat="result in results" ng-animate="'animate'">
                 <md-item-content>
                   <div  layout="row" flex="20" layout-align="center">
-                    <img ng-src="{{result.album.images[2].url}}" alt="{{result.artists[0].name}}">
+                    <img ng-src="{{result.image_small}}" alt="{{result.name}}">
                   </div>
                   <div class="md-tile-content">
                     <h3>{{result.name}}</h3>
-                    <h4>{{result.artists[0].name}}</h4>
+                    <h4>{{result.artist}}</h4>
                   </div>
                   <div flex="10" layout-align="center">
                     <span class="glyphicon glyphicon-plus"></span>

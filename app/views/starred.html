@@ -1,9 +1,9 @@
-<div id="starred" class="animate-switch" ng-controller="StarredCtrl">
+<div id="starred" class="animate-switch">
   <div class="loading" layout="row" layout-align="center center" ng-show="loading">
     <md-progress-circular class="loading_circle"  md-mode="indeterminate"></md-progress-circular>
   </div>
   <div ng-repeat="track in tracks" ng-nimate="'animate'" ng-hide="loading">
-    <md-list>
+    <md-list ng-controller="AddTrackCtrl">
       <md-item>
         <md-item-content>
           <div  layout="row" flex="20" layout-align="center">
@@ -15,7 +15,7 @@
             <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
           </div>
           <div flex="10" layout-align="center">
-            <span class="glyphicon glyphicon-plus"></span>
+            <span class="glyphicon glyphicon-plus" ng-mouseup="addTrack($index)"></span>
             <md-tooltip>
               Add to list
             </md-tooltip>
