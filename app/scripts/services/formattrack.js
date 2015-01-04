@@ -49,7 +49,7 @@ angular.module('meetTheTurtleApp')
         return tracks;
       },
 
-      // Adapts the Lastfm response format to the App format
+      // Adapts the Spotify response format to the App format
       spotifyToTrack: function(spotify_response) {
 
         var response = spotify_response.tracks.items;
@@ -69,7 +69,7 @@ angular.module('meetTheTurtleApp')
 
           tracks.push(track);
         }
-        console.log(tracks);
+
         return tracks;
       }
 

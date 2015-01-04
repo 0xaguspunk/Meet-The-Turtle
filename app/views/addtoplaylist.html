@@ -1,0 +1,10 @@
+<md-bottom-sheet class="md-list md-has-header">
+  <md-subheader>Playlists</md-subheader>
+  <md-list>
+    <md-item ng-repeat="playlist in playlists">
+      <md-button aria-label="{{playlist.name}}" ng-click="playListClick($index)">
+        <span class="md-inline-list-icon-label">{{ playlist.name }}</span>
+      </md-button>
+    </md-item>
+  </md-list>
+</md-bottom-sheet>

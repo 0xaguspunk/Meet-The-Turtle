@@ -30,12 +30,14 @@ angular.module('meetTheTurtleApp')
           data = response;
           deffered.resolve();
         });
+
         return deffered.promise;
       },
 
       getData: function() {
         return data;
       }
+
     };
     // Public API here
     return spotify;

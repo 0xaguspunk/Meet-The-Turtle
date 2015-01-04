@@ -1,3 +1,24 @@
-<div id="profile" class="animate-switch">
-<h1>PROFILEEEEEE</h1>
+<div id="profile">
+  <div ng-repeat="playlist in playlists">
+   <md-subheader>
+     <h1>{{playlist.name}}</h1>
+   </md-subheader>
+    <div ng-repeat="track in playlist.tracks">
+      <md-list>
+        <md-item>
+          <md-item-content>
+            <div  layout="row" flex="20" layout-align="center">
+              <img ng-src="{{track.image_small}}" alt="{{track.artist}}">
+            </div>
+            <div class="md-tile-content">
+              <h3>{{track.name}}</h3>
+              <h4>{{track.artist}}</h4>
+              <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
+            </div>
+          </md-item-content>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-item>
+      </md-list>
+    </div>
+  </div>
 </div>

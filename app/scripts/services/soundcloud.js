@@ -10,12 +10,12 @@
 angular.module('meetTheTurtleApp')
   .factory('soundcloud', function ($http) {
 
-    var songs = {};
+    var client_id = '1ad3dc8b5612920883cf40e2db3692a0',
+        redirect_uri = 'http://localhost:9000/#/starred';
 
-    songs.getPopularSongs = function () {
-      return $http.get();
+    var soundcloud = {
+
     };
 
-    // Public API here
-    return songs;
+    return soundcloud;
   });

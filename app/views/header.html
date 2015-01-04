@@ -1,7 +1,7 @@
 <!-- Navigation Bar -->
 <md-toolbar  md-scroll-shrink layout="row" layout-align="center center">
   <div class="md-toolbar-tools">
-    <div flex="90">
+    <div flex="85">
       <a class="navbar-brand" href="#/" flex>
         <img alt="Brand" src="../images/turtle.png">
       </a>
@@ -19,20 +19,17 @@
           <div class="colum">
             <md-text-float ng-model="query" ng-keyup="search()"></md-text-float>
             <md-list>
-              <md-item ng-repeat="result in results" ng-animate="'animate'">
+              <md-item ng-repeat="track in tracks" ng-animate="'animate'">
                 <md-item-content>
                   <div  layout="row" flex="20" layout-align="center">
-                    <img ng-src="{{result.image_small}}" alt="{{result.name}}">
+                    <img ng-src="{{track.image_small}}" alt="{{track.name}}">
                   </div>
                   <div class="md-tile-content">
-                    <h3>{{result.name}}</h3>
-                    <h4>{{result.artist}}</h4>
+                    <h3>{{track.name}}</h3>
+                    <h4>{{track.artist}}</h4>
                   </div>
                   <div flex="10" layout-align="center">
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <md-tooltip>
-                      Add to list
-                    </md-tooltip>
+                    <span class="glyphicon glyphicon-plus" ng-mouseup="addTrack($event, $index)"></span>
                   </div>
                 </md-item-content>
                 <md-divider ng-if="!$last"></md-divider>

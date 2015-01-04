@@ -8,5 +8,8 @@
  * Controller of the meetTheTurtleApp
  */
 angular.module('meetTheTurtleApp')
-  .controller('ProfileCtrl', function ($scope) {
+  .controller('ProfileCtrl', function ($scope, playlist) {
+
+      $scope.playlists = playlist.playlists;
+
   });
