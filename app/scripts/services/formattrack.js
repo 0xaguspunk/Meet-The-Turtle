@@ -20,6 +20,7 @@ angular.module('meetTheTurtleApp')
       this.image_small = image_small || '';
       this.image_large = image_large || '';
       this.playcount = playcount || -1;
+      this.link = undefined;
     }
 
     var formatTrack = {
@@ -71,8 +72,17 @@ angular.module('meetTheTurtleApp')
         }
 
         return tracks;
-      }
+      },
 
+      // Adapts the Youtube response format to the App format
+      youtubeToLink: function(youtube_response) {
+
+        var response = youtube_response.feed.entry[0];
+        var link = response.id.$t.split('/')[6];
+
+        return link;
+
+      }
     };
 
     return formatTrack;

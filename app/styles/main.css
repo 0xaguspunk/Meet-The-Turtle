@@ -95,6 +95,43 @@ md-tabs.md-default-theme md-tab {
 }
 
 
+/* PLAYER */
+iframe {
+  display: none;
+}
+
+.play, .forward, .backward {
+  font-size: 2em !important;
+}
+
+#info {
+  width: 80%;
+}
+
+
+/* PROFILE */
+md-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+#infotrack div.md-icon-container{
+  margin:0;
+}
+
+#infotrack span {
+  font-size: 2em;
+}
+
+#infotrack .md-icon-container {
+  padding-top: 20%;
+}
+
+/* RECOMMENDATIONS */
+md-sidenav {
+  width: 75% !important;
+}
+
 
 
 

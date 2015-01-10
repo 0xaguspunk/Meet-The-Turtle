@@ -9,42 +9,55 @@
    * Factory in the meetTheTurtleApp.
    */
   angular.module('meetTheTurtleApp')
-    .factory('track', function (formatTrack, lastfm, spotify, soundcloud) {
+    .factory('track', function (formatTrack, lastfm, spotify, youtube) {
 
       // Configuration
       var getTopTracks = lastfm.getTopTracks,
-          getData = lastfm.getData,
           formatTopTracks = formatTrack.lastfmToTrack;
 
       var searchTrack = spotify.getSearchResult,
-          getSearchData = spotify.getData,
           formatSearchTracks = formatTrack.spotifyToTrack;
 
-      var searchedTracks = [],
-          topTracks;
+      var getLink = youtube.getLink,
+          formatLink = formatTrack.youtubeToLink;
 
       var track = {
+
+        topTracks: [],
+        searchedTracks: [],
+        requestedLink: '',
 
         // Calls the API specified in topTracks and changes the format
         // of the response to the specified in formatTopTracks
         getTopTracks: function(limit) {
 
-          getTopTracks(limit).then(function () {
-            topTracks = formatTopTracks(getData());
+          getTopTracks(limit).then(function (data) {
+            track.topTracks = formatTopTracks(data);
           });
 
-          return topTracks;
+          return this.topTracks;
         },
 
         // Calls the API specified in searchTrack and changes the format
         // of the response to the specified in formatSearchTracks
         searchTrack: function(query, limit) {
 
-          searchTrack(query,limit).then(function () {
-            searchedTracks = formatSearchTracks(getSearchData());
+          searchTrack(query, limit).then(function (data) {
+            track.searchedTracks = formatSearchTracks(data);
           });
 
-          return searchedTracks;
+          return this.searchedTracks;
+        },
+
+        // Calls the API specified in getLink and changes the format
+        // of the response to the specified in formatLink
+        getLink: function(name,artist) {
+
+          getLink(name,artist).then(function(data){
+            track.requestedLink = formatLink(data);
+          });
+
+          return this.requestedLink;
         }
 
       };

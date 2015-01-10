@@ -18,8 +18,17 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.directives'
   ])
+  .constant('YT_event',{
+    STOP:            0,
+    PLAY:            1,
+    PAUSE:           2,
+    STATUS_CHANGE:   3,
+    PREVIOUS:        4,
+    NEXT:            5
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

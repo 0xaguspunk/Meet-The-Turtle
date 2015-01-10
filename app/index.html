@@ -33,7 +33,6 @@
     <!-- View -->
     <div ng-view=""></div>
 
-
     <div ng-include="'views/menu.html'"></div>
 
 
@@ -69,10 +68,13 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-spotify/dist/angular-spotify.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- Angular Material & Others -->
+    <script src="bower_components/jqueryui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui/build/angular-ui.js"></script>
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
 
@@ -91,6 +93,14 @@
     <script src="scripts/controllers/addtrack.js"></script>
     <script src="scripts/services/playlist.js"></script>
     <script src="scripts/controllers/listplaylist.js"></script>
+    <script src="scripts/directives/youtube.js"></script>
+    <script src="scripts/controllers/playtrack.js"></script>
+    <script src="scripts/services/playerlogic.js"></script>
+    <script src="scripts/services/youtube.js"></script>
+    <script src="scripts/controllers/trackinfo.js"></script>
+    <script src="scripts/controllers/recommendations.js"></script>
+    <script src="scripts/services/recommendations.js"></script>
+    <script src="scripts/services/econest.js"></script>
     <!-- endbuild -->
 </body>
 </html>

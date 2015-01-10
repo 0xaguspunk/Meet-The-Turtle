@@ -2,23 +2,23 @@
 
 /**
  * @ngdoc service
- * @name meetTheTurtleApp.lastfm
- * @description Deals with the requests made to the Lastfm API.
- * # lastfm
+ * @name meetTheTurtleApp.econest
+ * @description
+ * # econest
  * Factory in the meetTheTurtleApp.
  */
 angular.module('meetTheTurtleApp')
-  .factory('lastfm', function ($http) {
+  .factory('econest', function ($http) {
 
     // Config variables
     var base_url = 'http://ws.audioscrobbler.com/2.0/',
-        api_key = 'fd9cf40d0e96cac3ab91ce64ba819cfa',
-        format = 'json';
+      api_key = 'fd9cf40d0e96cac3ab91ce64ba819cfa',
+      format = 'json';
 
-    var lastfm =  {
+    var econest =  {
 
-      // API call to get the top tracks
-      getTopTracks: function(limit) {
+      // API call to get the recommended artists
+      getRecommendations: function(artist) {
 
         var promise = $http.get(base_url,{
           params: {
@@ -35,7 +35,6 @@ angular.module('meetTheTurtleApp')
       }
 
     };
-    return lastfm;
 
+    return econest;
   });
-

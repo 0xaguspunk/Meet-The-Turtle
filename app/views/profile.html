@@ -1,24 +1,57 @@
 <div id="profile">
-  <div ng-repeat="playlist in playlists">
-   <md-subheader>
-     <h1>{{playlist.name}}</h1>
-   </md-subheader>
-    <div ng-repeat="track in playlist.tracks">
-      <md-list>
-        <md-item>
-          <md-item-content>
-            <div  layout="row" flex="20" layout-align="center">
-              <img ng-src="{{track.image_small}}" alt="{{track.artist}}">
+
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <md-toolbar class="md-theme-light">
+      <h1 class="md-toolbar-tools">Recommendations for you</h1>
+    </md-toolbar>
+    <md-content ng-controller="RecommendationsCtrl" class="md-padding">
+
+    </md-content>
+  </md-sidenav>
+
+  <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+    <md-button data-toggle="modal" data-target=".create-playlist">Create Playlist</md-button>
+    <md-button ng-click="toggleRight()">Recommendations</md-button>
+
+    <div class="modal fade create-playlist" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <md-content class="search">
+            <div layout="row" layout-align="end">
+              <md-text-float ng-model="playlistName"></md-text-float>
+              <md-button class="md-raised md-primary" flex="15" ng-mouseup="createPlaylist()">CREATE</md-button>
             </div>
-            <div class="md-tile-content">
-              <h3>{{track.name}}</h3>
-              <h4>{{track.artist}}</h4>
-              <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
-            </div>
-          </md-item-content>
-          <md-divider ng-if="!$last"></md-divider>
-        </md-item>
-      </md-list>
+          </md-content>
+        </div>
+      </div>
     </div>
+  </md-whiteframe>
+  <div ng-controller="PlayTrackCtrl" ng-repeat="playlist in playlists" ng-if="playlist.name != 'Starred' && playlist.name != 'Search'" ng-init="playlistIndex = $index">
+   <md-card layout="row">
+     <h1 flex="80">{{playlist.name}} {{playlist.id}}</h1>
+     <md-button class="md-warn" ng-mouseup="deletePlaylist(playlistIndex)">Delete</md-button>
+   </md-card>
+    <md-list>
+      <ul ui-sortable ng-model="playlist.tracks">
+        <li  ng-repeat="track in playlist.tracks track by $index">
+      <md-item ng-controller="PlayTrackCtrl">
+        <md-item-content>
+          <div  layout="row" flex="20" layout-align="center" ng-click="playTrackFromList($index,playlistIndex)">
+            <img ng-src="{{track.image_small}}" alt="{{track.artist}}">
+          </div>
+          <div class="md-tile-content" ng-click="playTrackFromList($index,playlistIndex)">
+            <h3>{{track.name}}</h3>
+            <h4>{{track.artist}}</h4>
+            <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
+          </div>
+          <div flex="10" layout-align="center">
+            <span class="glyphicon glyphicon-th" ng-mouseup="removeTrackFromPlaylist($event,$index,playlistIndex)"></span>
+          </div>
+        </md-item-content>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-item>
+        </li>
+      </ul>
+    </md-list>
   </div>
 </div>

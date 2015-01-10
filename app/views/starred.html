@@ -1,25 +1,20 @@
-<div id="starred" class="animate-switch">
-  <div class="loading" layout="row" layout-align="center center" ng-show="loading">
-    <md-progress-circular class="loading_circle"  md-mode="indeterminate"></md-progress-circular>
-  </div>
-  <div ng-repeat="track in tracks" ng-nimate="'animate'" ng-hide="loading">
-    <md-list ng-controller="AddTrackCtrl">
-      <md-item>
-        <md-item-content>
-          <div  layout="row" flex="20" layout-align="center">
-            <img ng-src="{{track.image_small}}" alt="{{track.artist}}">
-          </div>
-          <div class="md-tile-content">
-            <h3>{{track.name}}</h3>
-            <h4>{{track.artist}}</h4>
-            <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
-          </div>
-          <div flex="10" layout-align="center">
-            <span class="glyphicon glyphicon-plus" ng-mouseup="addTrack($event, $index)"></span>
-          </div>
-        </md-item-content>
-        <md-divider ng-if="!$last"></md-divider>
-      </md-item>
-    </md-list>
-  </div>
+<div id="starred" ng-controller="AddTrackCtrl" >
+  <md-list>
+    <md-item ng-repeat="track in tracks" ng-controller="PlayTrackCtrl">
+      <md-item-content>
+        <div  layout="row" flex="20" layout-align="center" ng-click="playTrack($index,0)">
+          <img ng-src="{{track.image_small}}" alt="{{track.artist}}">
+        </div>
+        <div class="md-tile-content" ng-click="playTrack($index,0)">
+          <h3>{{track.name}}</h3>
+          <h4>{{track.artist}}</h4>
+          <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
+        </div>
+        <div flex="10" layout-align="center">
+          <span class="glyphicon glyphicon-plus" ng-mouseup="addTrack($event, $index)"></span>
+        </div>
+      </md-item-content>
+      <md-divider ng-if="!$last"></md-divider>
+    </md-item>
+  </md-list>
 </div>

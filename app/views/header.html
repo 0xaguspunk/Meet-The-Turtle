@@ -18,13 +18,13 @@
         <form>
           <div class="colum">
             <md-text-float ng-model="query" ng-keyup="search()"></md-text-float>
-            <md-list>
-              <md-item ng-repeat="track in tracks" ng-animate="'animate'">
+            <md-list ng-controller="AddTrackCtrl">
+              <md-item ng-repeat="track in tracks" ng-controller="PlayTrackCtrl">
                 <md-item-content>
-                  <div  layout="row" flex="20" layout-align="center">
+                  <div  layout="row" flex="20" layout-align="center" ng-click="playTrack($index,1)">
                     <img ng-src="{{track.image_small}}" alt="{{track.name}}">
                   </div>
-                  <div class="md-tile-content">
+                  <div class="md-tile-content" ng-click="playTrack($index,1)">
                     <h3>{{track.name}}</h3>
                     <h4>{{track.artist}}</h4>
                   </div>
