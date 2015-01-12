@@ -8,9 +8,10 @@
  * Controller of the meetTheTurtleApp
  */
 angular.module('meetTheTurtleApp')
-  .controller('RecommendationsCtrl', function ($scope, $mdSidenav, playerLogic, recommendations) {
+  .controller('RecommendationsCtrl', function ($scope, $mdSidenav, playerLogic, recommendations, playlist) {
 
     $scope.servicePlayedTrack = playerLogic;
+    $scope.serviceRecommendations = recommendations;
     $scope.artists = [];
 
     var makeRecommendation = function() {
@@ -27,5 +28,10 @@ angular.module('meetTheTurtleApp')
     };
 
     $scope.$watch('serviceTrack.songPlaying', makeRecommendation);
+
+    $scope.$watch('serviceRecommendations.recommendations',function(newVal) {
+      $scope.tracks = newVal;
+      playlist.playlists[2].tracks = newVal;
+    });
 
   });

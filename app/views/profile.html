@@ -5,7 +5,24 @@
       <h1 class="md-toolbar-tools">Recommendations for you</h1>
     </md-toolbar>
     <md-content ng-controller="RecommendationsCtrl" class="md-padding">
-
+      <md-list>
+        <md-item ng-repeat="track in tracks" ng-controller="PlayTrackCtrl">
+          <md-item-content ng-controller="AddTrackCtrl">
+            <div  layout="row" flex="20" layout-align="center" ng-click="playTrack($index,2)">
+              <img ng-src="{{track.image_small}}" alt="{{track.artist}}">
+            </div>
+            <div class="md-tile-content" ng-click="playTrack($index,2)">
+              <h3>{{track.name}}</h3>
+              <h4>{{track.artist}}</h4>
+              <h4><span class="glyphicon glyphicon-heart"></span>{{track.playcount}}</h4>
+            </div>
+            <div flex="10" layout-align="center">
+              <span class="glyphicon glyphicon-plus" ng-mouseup="addTrack($event, $index)"></span>
+            </div>
+          </md-item-content>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-item>
+      </md-list>
     </md-content>
   </md-sidenav>
 
@@ -26,9 +43,9 @@
       </div>
     </div>
   </md-whiteframe>
-  <div ng-controller="PlayTrackCtrl" ng-repeat="playlist in playlists" ng-if="playlist.name != 'Starred' && playlist.name != 'Search'" ng-init="playlistIndex = $index">
+  <div ng-controller="PlayTrackCtrl" ng-repeat="playlist in playlists" ng-if="playlist.name != 'Starred' && playlist.name != 'Search' && playlist.name != 'Recommendations'" ng-init="playlistIndex = $index">
    <md-card layout="row">
-     <h1 flex="80">{{playlist.name}} {{playlist.id}}</h1>
+     <h1 flex="80">{{playlist.name}}</h1>
      <md-button class="md-warn" ng-mouseup="deletePlaylist(playlistIndex)">Delete</md-button>
    </md-card>
     <md-list>

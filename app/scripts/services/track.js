@@ -25,6 +25,7 @@
 
         topTracks: [],
         searchedTracks: [],
+        searchedTracksFromArtists: [],
         requestedLink: '',
 
         // Calls the API specified in topTracks and changes the format
@@ -47,6 +48,33 @@
           });
 
           return this.searchedTracks;
+        },
+
+        // Calls the API specified in searchTrack and changes the format
+        // of the response to the specified in formatSearchTracks
+        searchTracksFromArtists: function(queryArray, limit) {
+
+
+          searchTrack( queryArray[0], limit/2).then(function (data) {
+
+            var result = formatSearchTracks(data);
+
+            track.searchedTracksFromArtists = [];
+
+            for(var song in result)
+              track.searchedTracksFromArtists.push(result[song]);
+
+            searchTrack(queryArray[1],limit/2).then(function(data){
+
+              var result = formatSearchTracks(data);
+
+              for(var song in result)
+                track.searchedTracksFromArtists.push(result[song]);
+
+            });
+          });
+
+          return this.searchedTracksFromArtists;
         },
 
         // Calls the API specified in getLink and changes the format

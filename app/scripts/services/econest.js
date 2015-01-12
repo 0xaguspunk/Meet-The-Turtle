@@ -11,23 +11,26 @@ angular.module('meetTheTurtleApp')
   .factory('econest', function ($http) {
 
     // Config variables
-    var base_url = 'http://ws.audioscrobbler.com/2.0/',
-      api_key = 'fd9cf40d0e96cac3ab91ce64ba819cfa',
-      format = 'json';
+    var base_url = 'http://developer.echonest.com/api/v4/artist/similar?',
+      api_key = 'TV5WADJ9GZQ5FPBR3',
+      format = 'json',
+      results = 2;
 
     var econest =  {
 
       // API call to get the recommended artists
-      getRecommendations: function(artist) {
+      getRecommendations: function(artists) {
 
-        var promise = $http.get(base_url,{
+        var info = {
           params: {
-            'api_key': api_key,
-            'method': 'chart.gettoptracks',
-            'limit': limit,
-            'format': format
+          'api_key': api_key,
+            'results': results,
+            'format': format,
+            'name': artists
           }
-        }).then(function (response) {
+        };
+
+        var promise = $http.get(base_url,info).then(function (response) {
           return response.data;
         });
 

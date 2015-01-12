@@ -64,7 +64,6 @@ angular.module('meetTheTurtleApp')
         );
 
         playlist.addTrackToPlayList(track,clickedPlaylist);
-        console.log(playlist.playlists);
 
       });
     };
