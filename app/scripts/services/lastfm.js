@@ -8,15 +8,12 @@
  * Factory in the meetTheTurtleApp.
  */
 angular.module('meetTheTurtleApp')
-  .factory('lastfm', function ($http, $q) {
+  .factory('lastfm', function ($http) {
 
     // Config variables
     var base_url = 'http://ws.audioscrobbler.com/2.0/',
         api_key = 'fd9cf40d0e96cac3ab91ce64ba819cfa',
         format = 'json';
-
-    var deffered = $q.defer();
-    var data = [];
 
     var lastfm =  {
 
@@ -30,15 +27,11 @@ angular.module('meetTheTurtleApp')
             'limit': limit,
             'format': format
           }
-        }).success(function (response) {
-          data = response;
-          deffered.resolve();
+        }).then(function (response) {
+          return response.data;
         });
-        return deffered.promise;
-      },
 
-      getData: function() {
-        return data;
+        return promise;
       }
 
     };

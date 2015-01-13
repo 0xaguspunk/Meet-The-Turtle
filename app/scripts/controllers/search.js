@@ -9,20 +9,28 @@
  */
 
 angular.module('meetTheTurtleApp')
-  .controller('SearchCtrl', function ($scope, spotify) {
+  .controller('SearchCtrl', function ($scope, track, playlist) {
 
-    $scope.results = [];
+    var config = {
+      'limit': 6
+    };
+
+    $scope.tracks = [];
+    $scope.serviceTrack = track;
 
     $scope.search = function() {
         if($scope.query) {
-          var promise = spotify.getQueryResult($scope.query)
-            .then(function (data) {
-              $scope.results = data;
-            });
+          $scope.tracks = track.searchTrack($scope.query,config.limit);
         }
         else
-          $scope.results = [];
+          $scope.tracks = [];
     };
+
+    $scope.$watch('serviceTrack.searchedTracks',function(newVal) {
+      $scope.tracks = newVal;
+      playlist.playlists[1].tracks = newVal;
+    });
+
   });
 
 

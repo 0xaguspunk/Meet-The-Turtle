@@ -1,0 +1,43 @@
+<!-- Navigation Bar -->
+<md-toolbar  md-scroll-shrink layout="row" layout-align="center center">
+  <div class="md-toolbar-tools">
+    <div flex="85">
+      <a class="navbar-brand" href="#/" flex>
+        <img alt="Brand" src="../images/turtle.png">
+      </a>
+    </div>
+    <div flex class="likes">
+      <span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
+    </div>
+  </div>
+</md-toolbar>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" ng-controller="SearchCtrl">
+      <md-content class="search">
+        <form>
+          <div class="colum">
+            <md-text-float ng-model="query" ng-keyup="search()"></md-text-float>
+            <md-list ng-controller="AddTrackCtrl">
+              <md-item ng-repeat="track in tracks" ng-controller="PlayTrackCtrl">
+                <md-item-content>
+                  <div  layout="row" flex="20" layout-align="center" ng-click="playTrack($index,1)">
+                    <img ng-src="{{track.image_small}}" alt="{{track.name}}">
+                  </div>
+                  <div class="md-tile-content" ng-click="playTrack($index,1)">
+                    <h3>{{track.name}}</h3>
+                    <h4>{{track.artist}}</h4>
+                  </div>
+                  <div flex="10" layout-align="center">
+                    <span class="glyphicon glyphicon-plus" ng-mouseup="addTrack($event, $index)"></span>
+                  </div>
+                </md-item-content>
+                <md-divider ng-if="!$last"></md-divider>
+              </md-item>
+            </md-list>
+          </div>
+        </form>
+      </md-content>
+    </div>
+  </div>
+</div>

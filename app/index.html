@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
 
+<<<<<<< HEAD
     <title>mtt</title>
+=======
+    <title>Turtle</title>
+>>>>>>> origin/master
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,71 +32,12 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <!-- Navigation Bar -->
-    <md-toolbar  md-scroll-shrink layout="row" layout-align="center center">
-      <div class="md-toolbar-tools">
-        <div flex="90">
-          <a class="navbar-brand" href="#" flex>
-              <img alt="Brand" src="../images/turtle.png">
-          </a>
-        </div>
-        <div flex class="likes">
-            <span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-lg"></span>
-        </div>
-      </div>
-    </md-toolbar>
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content" ng-controller="SearchCtrl">
-          <md-content class="search">
-            <form>
-              <div class="colum">
-                <md-text-float ng-model="query" ng-keyup="search()"></md-text-float>
-                <md-list>
-                  <md-item ng-repeat="result in results" ng-animate="'animate'">
-                    <md-item-content>
-                      <div  layout="row" flex="20" layout-align="center">
-                        <img ng-src="{{result.album.images[2].url}}" alt="{{result.artists[0].name}}">
-                      </div>
-                      <div class="md-tile-content">
-                        <h3>{{result.name}}</h3>
-                        <h4>{{result.artists[0].name}}</h4>
-                      </div>
-                      <div flex="10" layout-align="center">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <md-tooltip>
-                          Add to list
-                        </md-tooltip>
-                      </div>
-                    </md-item-content>
-                    <md-divider ng-if="!$last"></md-divider>
-                  </md-item>
-                </md-list>
-              </div>
-            </form>
-          </md-content>
-        </div>
-      </div>
-    </div>
-
+    <div ng-include="'views/header.html'"></div>
 
     <!-- View -->
     <div ng-view=""></div>
 
-    <!-- Footer Menu -->
-    <div ng-controller="MenuCtrl">
-      <md-tabs class="bottom-menu">
-        <md-tab md-on-select="go('/starred')">
-          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        </md-tab>
-        <md-tab md-on-select="go('/player')">
-          <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
-        </md-tab>
-        <md-tab md-on-select="go('/profile')">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        </md-tab>
-      </md-tabs>
-    </div>
+    <div ng-include="'views/menu.html'"></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -111,6 +56,7 @@
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <![endif]-->
+
     <!-- endbuild -->
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -126,25 +72,40 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-spotify/dist/angular-spotify.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- Angular Material & Others -->
+    <script src="bower_components/jqueryui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui/build/angular-ui.js"></script>
     <script src="bower_components/hammerjs/hammer.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-          <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/starred.js"></script>
-        <script src="scripts/controllers/player.js"></script>
-        <script src="scripts/controllers/profile.js"></script>
-        <script src="scripts/services/soundcloud.js"></script>
-        <script src="scripts/controllers/menu.js"></script>
-        <script src="scripts/controllers/search.js"></script>
-        <script src="scripts/services/spotify.js"></script>
-        <script src="scripts/services/lastfm.js"></script>
-        <script src="scripts/services/track.js"></script>
-        <script src="scripts/services/formattrack.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/starred.js"></script>
+    <script src="scripts/controllers/player.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/services/soundcloud.js"></script>
+    <script src="scripts/controllers/menu.js"></script>
+    <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/services/spotify.js"></script>
+    <script src="scripts/services/lastfm.js"></script>
+    <script src="scripts/services/track.js"></script>
+    <script src="scripts/services/formattrack.js"></script>
+    <script src="scripts/controllers/addtrack.js"></script>
+    <script src="scripts/services/playlist.js"></script>
+    <script src="scripts/controllers/listplaylist.js"></script>
+    <script src="scripts/directives/youtube.js"></script>
+    <script src="scripts/controllers/playtrack.js"></script>
+    <script src="scripts/services/playerlogic.js"></script>
+    <script src="scripts/services/youtube.js"></script>
+    <script src="scripts/controllers/trackinfo.js"></script>
+    <script src="scripts/controllers/recommendations.js"></script>
+    <script src="scripts/services/recommendations.js"></script>
+    <script src="scripts/services/econest.js"></script>
+    <script src="scripts/services/hipermedia.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

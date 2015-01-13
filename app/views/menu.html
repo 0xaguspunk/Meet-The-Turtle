@@ -1,0 +1,35 @@
+<!-- Footer Menu -->
+<div ng-controller="MenuCtrl">
+  <div ng-controller="PlayerCtrl" ng-show="player">
+    <youtube videoid="{{videoid}}"></youtube>
+    <md-card layout="column" layout-align="center center" ng-controller="AddTrackCtrl">
+      <img src="{{track.image_large}}">
+      <div id="info" layout="row">
+        <div flex="20" layout="column" layout-align="center center">
+          <span class="glyphicon glyphicon-plus" ng-mouseup="addTrackFromPlayer($event,track)"></span>
+        </div>
+        <div layout="column" layout-align="start center" flex="60">
+          <h3>{{track.name}}</h3>
+          <h4>{{track.artist}}</h4>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-button aria-label ng-mouseup="action(YT_event.PREVIOUS)"><span class="glyphicon glyphicon-step-backward backward"></span></md-button>
+        <md-button aria-label ng-click="play(YT_event.PLAY)" ng-show="pause"><span class="glyphicon glyphicon-play play"></span></md-button>
+        <md-button aria-label ng-click="play(YT_event.PAUSE)" ng-hide="pause"><span class="glyphicon glyphicon-pause play"></span></md-button>
+        <md-button aria-label ng-mouseup="action(YT_event.NEXT)"><span class="glyphicon glyphicon-step-forward forward"></span></md-button>
+      </div>
+    </md-card>
+  </div>
+  <md-tabs class="bottom-menu">
+    <md-tab md-on-select="go('/starred')">
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    </md-tab>
+    <md-tab md-on-select="go('/player')">
+      <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+    </md-tab>
+    <md-tab md-on-select="go('/profile')">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    </md-tab>
+  </md-tabs>
+</div>

@@ -11,10 +11,11 @@ angular.module('meetTheTurtleApp')
   .factory('spotify', function ($http) {
 
     var base_url = 'https://api.spotify.com/v1/search';
-    var limit = 6;
 
     var spotify = {
-      getQueryResult: function (query) {
+
+      // API call to get results corresponding to a query
+      getSearchResult: function (query, limit) {
 
         var promise = $http.get(base_url,{
           params: {
@@ -23,8 +24,9 @@ angular.module('meetTheTurtleApp')
             'limit': limit
           }
         }).then(function (response) {
-            return response.data.tracks.items;
-          });
+            return response.data;
+        });
+
         return promise;
       }
     };
