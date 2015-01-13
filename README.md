@@ -15,7 +15,7 @@ Using angular's material module, Tortuga's UI is implemented following Google's 
 Tortuga is an AngularJS app, benefiting from the use of third-party modules like `angular-material`, `angular-aria`, `angular-animate`, `hammerJS`, `bootstrap` and `angular-ui` for frontend design and other modules like `angular-resource`, `angular-touch` and `angular-route` for app functionalities.
 
 # App structure #
-Tortuga's workflow includes using tools like `yeoman`, `bower` and `grunt`. Being generated with yeoman's architecture, the app has the following structure which is pretty self-explanatory:
+Tortuga's workflow includes using tools like `yeoman`, `bower` and `grunt`. Being generated with yeoman, the app has the following structure which is pretty self-explanatory:
 
 ```
 |-app
@@ -49,7 +49,7 @@ All the information that the app manages is found through its services. Tortuga 
 
 The app has to make several calls to different APIs to get information from different songs and update this information inside the playlists of the user. Each API has a service related which will only worry about making the request through angular's `$http` service and return the response data not caring about the apps format or needed information.
 
-The main services which will care about that format will be `track`, `formatTrack` and `playlist`.
+The main services which will care about that will be `track`, `formatTrack` and `playlist`.
 
 ### Track ###
 `track` is a service that manages the requests to the selected services in order to get the top tracks from LastFM or query a song using Spotify's search engine. Its configuration lets us change the service for the search engine or the top tracks provider pretty easily. 
@@ -57,7 +57,7 @@ The main services which will care about that format will be `track`, `formatTrac
 In order to format the responses of the requested songs, `track` gets injected the `formatTrack` service which adapts the response to the format defined by the app.
 
 ### FormatTrack ###
-`formatTrack defines` a `Track` object which is used by all the controllers and services from the app when reating the app's tracks. Each time we create a new API service we generate a function inside `formatTrack` which translates the response of that API to the one defined.
+`formatTrack` defines a `Track` object which is used by all the controllers and services from the app when treating with the app's tracks. Each time we create a new API service we generate a function inside `formatTrack` which translates the response of that API to the one defined.
   
   ```
   // Track object constructor for the App
@@ -83,7 +83,7 @@ For example if we click to add a track from one of our search results, the contr
 ### Popular tracks ###
 The /starred URL provides us a list of the most popular songs from LastFM. The controller in charge of this view is the `StarredCtrl`. `StarredCtrl` will have the `track` service injected in order to request the top tracks of a particular provider. 
 
-The controller will call `track.getTopTracks`, then inside this function track will call the selected API service and catch the response. Once recieved and before returning it back to the controller, `track` will call the correspondant `formatTrack` function in order to translate the response so the controller doesn't have to worry about the response format and just display the information using Tortuga's format.
+The controller will call `track.getTopTracks`, then inside this function track will call the selected API service and catch the response. Once recieved and before returning it back to the controller, `track` will call the correspondant `formatTrack` function in order to translate the response so the controller doesn't have to worry about the response format being able to just display the information using Tortuga's format.
 
 ![image](https://cloud.githubusercontent.com/assets/6149085/5714474/ad1e5a94-9ac9-11e4-8970-66ed044c63f4.png)
 
@@ -125,6 +125,6 @@ Tortuga also lets you get awesome recommendations from The Eco Nest API. Each ti
 ![screenshot from 2015-01-13 02 29 16](https://cloud.githubusercontent.com/assets/6149085/5714630/fe63bf46-9acb-11e4-8758-f62f71256f40.png)
 
 ### Set Up ###
-To set up the app, clone the repository and execute `bower install` and `grunt serve`. The backend is still under development, right now Tortuga uses a public API found in https://github.com/raulmoron/vmhipermedia, but our intention is to develop our own with Node.js and MongoDB.
+To set up the app, clone the repository and execute `bower install` and `grunt serve`. The backend is still under development. Right now Tortuga uses a public API found in https://github.com/raulmoron/vmhipermedia, but our intention is to develop our own with Node.js and MongoDB.
 
 
