@@ -59,7 +59,7 @@ In order to format the responses of the requested songs, `track` gets injected t
 ### FormatTrack ###
 `formatTrack` defines a `Track` object which is used by all the controllers and services from the app when treating with the app's tracks. Each time we create a new API service we generate a function inside `formatTrack` which translates the response of that API to the one defined.
   
-  ```
+  ```javascript
   // Track object constructor for the App
     function Track (name, artist, album, image_small, image_large, playcount, id, playlist_id) {
 
