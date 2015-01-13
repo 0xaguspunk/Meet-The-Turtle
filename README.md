@@ -2,7 +2,7 @@ Meet-The-Turtle
 ===============
 ![screenshot from 2015-01-13 02 09 46](https://cloud.githubusercontent.com/assets/6149085/5714462/6a706f0c-9ac9-11e4-9dc1-be9af4bcc0c4.png)
 # Tortuga #
-Tortuga is an AngularJS web app music player that allows you to listen to your favorite songs, create your own playlists and get the best music recommendations. Benefiting from the APIs from LastFM, Spotify, SoundCloud, YouTube and The Eco Nest, Tortuga believes in taking the best from each service.
+Tortuga is an AngularJS web app music player that allows you to listen to your favorite songs, create your own playlists and get the best music recommendations. Benefiting from the LastFM, Spotify, SoundCloud, YouTube and The Eco Nest APIs, Tortuga believes in taking the best from each service.
 
 Using angular's material module, Tortuga's UI is implemented following Google's Material Design guidelines. Due to angular-material still being a module in beta phase, Tortuga uses bootstrap to complement functionalities yet not found in this module. 
 
