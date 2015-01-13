@@ -6,6 +6,11 @@ Tortuga is an AngularJS web app music player that allows you to listen to your f
 
 Using angular's material module, Tortuga's UI is implemented following Google's Material Design guidelines. Due to angular-material still being a module in beta phase, Tortuga uses bootstrap to complement functionalities yet not found in this module. 
 
+# Contributors #
+- Agustín Armellini Fischer: armellini13@gmail.com
+- Pepe Calvó: pepecalvocalzado@gmail.com
+- Arnau Cebrián: arnaucda@gmail.com
+
 # Libraries used #
 Tortuga is an AngularJS app, benefiting from the use of third-party modules like `angular-material`, `angular-aria`, `angular-animate`, `hammerJS`, `bootstrap` and `angular-ui` for frontend design and other modules like `angular-resource`, `angular-touch` and `angular-route` for app functionalities.
 
