@@ -8,7 +8,6 @@ Using angular's material module, Tortuga's UI is implemented following Google's 
 
 # Contributors #
 - Agustín Armellini Fischer: armellini13@gmail.com
-- Pepe Calvó: pepecalvocalzado@gmail.com
 - Arnau Cebrián: arnaucda@gmail.com
 
 # Libraries used #
