@@ -3,13 +3,14 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.recommendations
- * @description
+ * @description Handles everything related to recommendations.
  * # recommendations
  * Factory in the meetTheTurtleApp.
  */
 angular.module('meetTheTurtleApp')
   .factory('recommendations', function (track, formatTrack, econest) {
 
+    // Config
     var getRecommendations = econest.getRecommendations,
         formatRecommentadtions = formatTrack.ecoToArtists;
 
@@ -21,6 +22,7 @@ angular.module('meetTheTurtleApp')
 
       recommendations: [],
 
+      // Gets recommendation based on artists
       getRecommendations: function(artist) {
 
         var index = artist.indexOf(this.artists);

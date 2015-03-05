@@ -3,7 +3,7 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.econest
- * @description
+ * @description Makes request to the econest API
  * # econest
  * Factory in the meetTheTurtleApp.
  */

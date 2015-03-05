@@ -3,14 +3,14 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:PlayingctrlCtrl
- * @description
+ * @description Takes care of all the music player logic.
  * # PlayingctrlCtrl
  * Controller of the meetTheTurtleApp
  */
 angular.module('meetTheTurtleApp')
   .controller('PlayerCtrl', function ($scope, playerLogic, playlist, track, YT_event, $mdToast) {
 
-    // Config
+    // Configuration
     $scope.YT_event = YT_event;
     $scope.servicePlayer = playerLogic;
     $scope.serviceTrack = track;
@@ -29,26 +29,31 @@ angular.module('meetTheTurtleApp')
         .join(' ');
     };
 
-    // Event called when song clicked
+    // Event called when song is clicked
     var setSong = function() {
 
+      // Checks if there has been actually a song clicked
       if(playlist.playlists[playerLogic.listPlaying] &&
         playlist.playlists[playerLogic.listPlaying].hasOwnProperty('tracks') &&
         playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying]) {
 
+          // If there's been a song clicked we set it
           $scope.track = playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying];
 
+          // If we haven't requested the link of the song before we get the link
           if (!playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying].link) {
 
             track.getLink(playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying].name,
                           playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying].artist);
           }
+          // If not, we play directly the song
           else {
             $scope.playSong();
           }
         }
     };
 
+    // Callback called when we get the requested link
     var setLink = function(newVal) {
 
       if(playlist.playlists[playerLogic.listPlaying] &&
@@ -62,6 +67,8 @@ angular.module('meetTheTurtleApp')
       }
     };
 
+    // Set watch services to check when a song is changed and when
+    // a requested link has arrived
     $scope.$watch('serviceTrack.requestedLink', setLink);
     $scope.$watch('servicePlayer.songPlaying', setSong);
 
@@ -111,6 +118,7 @@ angular.module('meetTheTurtleApp')
       $scope.videoid = playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying].link;
     };
 
+    // Shows a toast when the status of a song has changed from not playing to playing
     $scope.$on(YT_event.STATUS_CHANGE, function(event, data) {
 
       if(!data.localeCompare("NOT PLAYING")){

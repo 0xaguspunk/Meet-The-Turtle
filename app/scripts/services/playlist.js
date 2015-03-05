@@ -3,13 +3,15 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.playlist
- * @description
+ * @description Service that handles everything related to playlsits
+ *              creation, modification and deletion.
  * # playlist
  * Factory in the meetTheTurtleApp.
  */
 angular.module('meetTheTurtleApp')
   .factory('playlist', function (hipermedia, formatTrack) {
 
+    // Config
     var createPlaylist = hipermedia.createPlaylist,
         getPlaylist = hipermedia.getPlaylist,
         formatPlaylist = formatTrack.hipermediaToPlaylist,
@@ -59,23 +61,27 @@ angular.module('meetTheTurtleApp')
 
       playlists: queryPlaylist,
 
+      // Creates playlist
       createPlaylist: function(name){
         var id = Math.floor((Math.random() * 9999) + 1);
         createPlaylist(name,id);
         this.playlists.push({name: name, tracks: [], id: id});
       },
 
+      // Deletes playlist
       deletePlaylist: function(playlistIndex) {
         deletePlaylist(this.playlists[playlistIndex].id);
         this.playlists.splice(playlistIndex,1);
       },
 
+      // Adds track to playlist
       addTrackToPlayList: function(track,playlist){
         var id = Math.floor((Math.random() * 9999) + 1);
         addTrackToPlaylist(track, id, this.playlists[playlist].id);
         this.playlists[playlist].tracks.push(track);
       },
 
+      // Removes track from playlist
       removeTrackFromPlaylist: function(songIndex,playlistIndex){
         removeTrackFromPlaylist(this.playlists[playlistIndex].tracks[songIndex].id,
                                 this.playlists[playlistIndex].id);

@@ -3,7 +3,7 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:ProfileCtrl
- * @description
+ * @description Controls playlist show and creation.
  * # ProfileCtrl
  * Controller of the meetTheTurtleApp
  */
@@ -24,13 +24,16 @@ angular.module('meetTheTurtleApp')
         .join(' ');
     };
 
+    // We set the playlists
     $scope.playlists = playlist.playlists;
 
+    // Creates a new playlist
     $scope.createPlaylist = function() {
 
       if($scope.playlistName) {
         playlist.createPlaylist($scope.playlistName);
 
+        // Toast confirming the creation of the playlist
         $mdToast.show(
           $mdToast.simple()
             .content($scope.playlistName + ' has been created')
@@ -43,10 +46,12 @@ angular.module('meetTheTurtleApp')
 
     };
 
+    // Deletes playlist
     $scope.deletePlaylist = function(playlistIndex) {
       playlist.deletePlaylist(playlistIndex);
     };
 
+    // Removes track from playlist
     $scope.removeTrackFromPlaylist = function($event,songIndex,playlistIndex) {
 
       $mdBottomSheet.show({

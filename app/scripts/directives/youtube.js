@@ -3,7 +3,8 @@
 /**
  * @ngdoc directive
  * @name meetTheTurtleApp.directive:youtube
- * @description
+ * @description YouTube directive that lets you control any loaded
+ *              video.
  * # youtube
  */
 angular.module('meetTheTurtleApp')
@@ -79,6 +80,7 @@ angular.module('meetTheTurtleApp')
           });
         }
 
+        // Changes video
         scope.$watch('videoid', function(newValue, oldValue) {
           if (newValue == oldValue) {
             return;
@@ -88,6 +90,7 @@ angular.module('meetTheTurtleApp')
 
         });
 
+        // Changes width and height
         scope.$watch('height + width', function(newValue, oldValue) {
           if (newValue == oldValue) {
             return;
@@ -97,16 +100,18 @@ angular.module('meetTheTurtleApp')
 
         });
 
-
+        // Stops video
         scope.$on(YT_event.STOP, function () {
           player.seekTo(0);
           player.stopVideo();
         });
 
+        // Plays video
         scope.$on(YT_event.PLAY, function () {
           player.playVideo();
         });
 
+        // Pauses video
         scope.$on(YT_event.PAUSE, function () {
           player.pauseVideo();
         });

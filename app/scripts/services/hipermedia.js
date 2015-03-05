@@ -3,7 +3,7 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.hipermedia
- * @description
+ * @description Makes request to the hipermedia API
  * # hipermedia
  * Factory in the meetTheTurtleApp.
  */
@@ -12,6 +12,7 @@ angular.module('meetTheTurtleApp')
 
     var hipermedia =  {
 
+      // Creates playlist
       createPlaylist: function(name,id){
 
         $http( {
@@ -25,6 +26,7 @@ angular.module('meetTheTurtleApp')
         });
       },
 
+      // Gets playlist information
       getPlaylist: function(){
 
         var promise = $http( {
@@ -42,6 +44,7 @@ angular.module('meetTheTurtleApp')
         return promise;
       },
 
+      // Gets tracks that belong to a playlist
       getTracksFromPlaylist: function(playlist_id){
 
         var promise = $http( {
@@ -59,6 +62,7 @@ angular.module('meetTheTurtleApp')
         return promise;
       },
 
+      // Adds track to playlist
       addTrackToPlaylist: function(track, id,playlist_id){
 
 
@@ -82,6 +86,7 @@ angular.module('meetTheTurtleApp')
         });
       },
 
+      // Removes track from playlist
       removeTrackFromPlaylist: function(id,playlist_id){
 
 
@@ -97,6 +102,7 @@ angular.module('meetTheTurtleApp')
 
       },
 
+      // Deletes playlist
       deletePlaylist: function(playlist_id){
 
         $http( {

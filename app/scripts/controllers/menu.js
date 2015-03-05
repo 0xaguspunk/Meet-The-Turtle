@@ -3,13 +3,14 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:MenuCtrl
- * @description
+ * @description Takes care of the selected tab on the menu.
  * # MenuCtrl
  * Controller of the meetTheTurtleApp
  */
 angular.module('meetTheTurtleApp')
   .controller('MenuCtrl', function ($scope, $location) {
 
+    // Highlights the selected tab on the menu
     $scope.go = function ( path ) {
 
       if(!path.localeCompare('/player')) {

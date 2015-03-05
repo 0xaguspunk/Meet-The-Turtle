@@ -3,7 +3,7 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.youtube
- * @description
+ * @description Deals with the requests made to the YouTube API.
  * # youtube
  * Factory in the meetTheTurtleApp.
  */

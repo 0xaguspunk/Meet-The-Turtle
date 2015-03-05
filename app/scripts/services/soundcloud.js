@@ -3,7 +3,7 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.soundcloud
- * @description
+ * @description Deals with the requests made to the Soundcloud API.
  * # soundcloud
  * Factory in the meetTheTurtleApp.
  */

@@ -3,7 +3,7 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:RecommendationsCtrl
- * @description
+ * @description Handles recommendations.
  * # RecommendationsCtrl
  * Controller of the meetTheTurtleApp
  */
@@ -14,6 +14,7 @@ angular.module('meetTheTurtleApp')
     $scope.serviceRecommendations = recommendations;
     $scope.artists = [];
 
+    // Callback function that is called each time a song is played
     var makeRecommendation = function() {
 
       if(playlist.playlists[playerLogic.listPlaying] &&
@@ -22,6 +23,7 @@ angular.module('meetTheTurtleApp')
 
         var artist = playlist.playlists[playerLogic.listPlaying].tracks[playerLogic.songPlaying].artist;
 
+        // Recommendations are made from the artists
         $scope.tracks = recommendations.getRecommendations(artist);
 
       }

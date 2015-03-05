@@ -3,7 +3,7 @@
 /**
  * @ngdoc service
  * @name meetTheTurtleApp.spotify
- * @description
+ * @description Deals with the requests made to the Spotify API.
  * # spotify
  * Factory in the meetTheTurtleApp.
  */

@@ -3,7 +3,7 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:SearchlCtrl
- * @description
+ * @description Search bar controller.
  * # SearchCtrl
  * Controller of the meetTheTurtleApp
  */
@@ -11,6 +11,7 @@
 angular.module('meetTheTurtleApp')
   .controller('SearchCtrl', function ($scope, track, playlist) {
 
+    // Config
     var config = {
       'limit': 6
     };

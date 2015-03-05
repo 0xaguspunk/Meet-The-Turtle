@@ -3,7 +3,7 @@
 /**
  * @ngdoc function
  * @name meetTheTurtleApp.controller:TrackinfoCtrl
- * @description
+ * @description Handles the track info bottom sheet.
  * # TrackinfoCtrl
  * Controller of the meetTheTurtleApp
  */
