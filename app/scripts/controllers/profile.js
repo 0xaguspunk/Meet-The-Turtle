@@ -59,7 +59,6 @@ angular.module('meetTheTurtleApp')
         controller: 'TrackInfoCtrl',
         targetEvent: $event
       }).then(function() {
-
         $mdToast.show(
           $mdToast.simple()
             .content(playlist.playlists[playlistIndex].tracks[songIndex].name + ' has been removed from ' +

@@ -70,7 +70,7 @@ angular.module('meetTheTurtleApp')
     // Set watch services to check when a song is changed and when
     // a requested link has arrived
     $scope.$watch('serviceTrack.requestedLink', setLink);
-    $scope.$watch('servicePlayer.songPlaying', setSong);
+    $scope.$watchGroup(['servicePlayer.songPlaying','servicePlayer.listPlaying'], setSong);
 
 
     // Player events
