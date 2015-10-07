@@ -82,7 +82,7 @@ For example if we click to add a track from one of our search results, the contr
 ### Popular tracks ###
 The /starred URL provides us a list of the most popular songs from LastFM. The controller in charge of this view is the `StarredCtrl`. `StarredCtrl` will have the `track` service injected in order to request the top tracks of a particular provider. 
 
-The controller will call `track.getTopTracks`, then inside this function track will call the selected API service and catch the response. Once recieved and before returning it back to the controller, `track` will call the correspondant `formatTrack` function in order to translate the response so the controller doesn't have to worry about the response format being able to just display the information using Tortuga's format.
+The controller will call `track.getTopTracks`, then inside this function track will call the selected API service and catch the response. Once recieved and before returning it back to the controller, `track` will call the correspondent `formatTrack` function in order to translate the response so the controller doesn't have to worry about the response format being able to just display the information using Tortuga's format.
 
 ![image](https://cloud.githubusercontent.com/assets/6149085/5714474/ad1e5a94-9ac9-11e4-8970-66ed044c63f4.png)
 
